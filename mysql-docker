@@ -1,0 +1,40 @@
+MYSQL DOCKER (https://selftuts.in/install-mysql-using-docker-compose/)
+-- configuracion de docker-compose.yml
+__________________________ mysql-docker-compose.yml ___________________________________
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
+
+ _____________________________________________________________
+-- Ejecutar
+docker-compose -f mysql-docker-compose.yml up -d
+
+-- accesos
+    UserName = root
+    Password = root
+    Database Name = database
+    Host = localhost or 127.0.0.1
+    Port = 3306
+    mysqlUer = user
+    mysqlPassword = password
+
+
+
+-- Si existe error en la conexion con Dbeaver en driver properties
+-  “allowPublicKeyRetrieval” to “TRUE”.

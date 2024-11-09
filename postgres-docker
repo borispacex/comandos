@@ -1,0 +1,24 @@
+POSTGRES
+
+_____________________ postgres-docker-compose.yml _______________________________
+version: '3.4'
+services:
+  postgres:
+    restart: always
+    container_name: postgres-db
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=dbtest
+      - POSTGRES_PASSWORD=password
+
+volumes:
+  postgres_data:
+
+  ___________________________________________________
+  -- Ejecutar
+docker-compose -f postgres-docker-compose.yml up -d

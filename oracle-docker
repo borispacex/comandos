@@ -14,3 +14,10 @@ Password: 123456
 Nombre del Host: localhost
 Puerto: 1521
 SID: xe
+
+
+-- configurar IDE sql developer a ingles
+-- Agregar este en el archivo /opt/sqldeveloper/ide/bin/ide.conf
+AddVMOption -Duser.language=en
+AddVMOption -Duser.country=US
+

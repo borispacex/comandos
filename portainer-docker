@@ -1,0 +1,36 @@
+PORTAINER
+
+sudo groupadd docker
+
+sudo usermod -aG docker $USER
+
+newgrp docker
+
+docker run hello-world
+
+reboot
+
+
+-- Crear archivo NO FUNCIONA
+_____________________________ portainer-docker-compose.yml _____________________________
+version: "3"
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - 9000:9000
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+volumes:
+  portainer_data:
+_______________________________________________________
+docker-compose -f portainer-docker-compose.yml up -d
+
+
+--- Credenciales al momento de iniciar en el navegador : localhost:9000
+contraseña: password123456
+
+
