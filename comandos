@@ -1,0 +1,6 @@
+1. Eliminar algun repositorio que no se usa
+cd /etc/yum.repos.d/
+
+2. Eliminar programa colgado
+ps -aux| grep -i intellij
+kill -9 123456
